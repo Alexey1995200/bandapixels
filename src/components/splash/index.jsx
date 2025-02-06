@@ -1,7 +1,7 @@
 import {splash} from "../../assets/img";
 import "./styles.scss"
 
-const Splash = ({setIsSplashShown, setIsSplashLoaded}) => {
+const Splash = ({setIsSplashLoaded}) => {
   const load = () => {
     setIsSplashLoaded(true)
   }
