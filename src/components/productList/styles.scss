@@ -12,3 +12,28 @@
   flex-wrap: wrap;
   justify-content: center;
 }
+
+.returns{
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  h2{
+    color: rgb(255, 255, 255);
+    font-family: Alata, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22px;
+    letter-spacing: 0;
+    text-align: left;
+  }
+  p{
+    color: rgba(255, 255, 255, 0.5);
+    font-family: Alata, sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 160%;
+    letter-spacing: 0;
+    text-align: left;
+  }
+}
+

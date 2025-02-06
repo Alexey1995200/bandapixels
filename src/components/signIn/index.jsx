@@ -55,7 +55,8 @@ const SignIn = ({setIsSignedIn}) => {
     setTemp('')
   }
   const handleKeyDown = (event) => {
-    if (event.key === 'Enter') {
+    if (temp.length > 3 &&
+        event.key === 'Enter') {
       handleContinue()
     }
   };
