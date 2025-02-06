@@ -1,5 +1,6 @@
 import './styles.scss'
 import {useEffect, useState} from "react";
+import {Spinner} from "../../assets/spinner";
 
 const SignIn = ({setIsSignedIn}) => {
   const [temp, setTemp] = useState("")
@@ -7,14 +8,16 @@ const SignIn = ({setIsSignedIn}) => {
   const [password, setPassword] = useState('')
   const [isEnteringPassword, setIsEnteringPassword] = useState(false)
   const [token, setToken] = useState('')
+  const [isLogginingIn, setIsLogginingIn] = useState(false)
+
   useEffect(() => {
     if (!!token) setIsSignedIn(true)
   }, [token]);
   useEffect(() => {
     if (!!username && !!password) {
-      fetch('https://fakestoreapi.com/auth/login',{
-        method:'POST',
-        headers: { 'Content-Type': 'application/json' },
+      fetch('https://fakestoreapi.com/auth/login', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
         body:JSON.stringify({
           username: username,             //"mor_2314"
           password: password             //"83r5^_"
@@ -40,7 +43,7 @@ const SignIn = ({setIsSignedIn}) => {
           alert(errorMessage);
           window.location.reload();
         });
-        }
+    }
   }, [username, password]);
   const handleContinue = () => {
     if (!username) {
@@ -54,11 +57,13 @@ const SignIn = ({setIsSignedIn}) => {
   }
   const handleKeyDown = (event) => {
     if (temp.length > 3 &&
-        event.key === 'Enter') {
+      event.key === 'Enter') {
       handleContinue()
+      setIsLogginingIn(true)
     }
   };
   return (
+    isLogginingIn && !!password ? <Spinner/> :
     <div className={'sign-in'}>
       <h1>Sign In</h1>
       <div className={'form'}>
@@ -72,7 +77,9 @@ const SignIn = ({setIsSignedIn}) => {
         />
         <button
           className={'sign-in__button'}
-          onClick={() => {handleContinue()}}
+          onClick={() => {
+            handleContinue()
+          }}
         >Continue
         </button>
       </div>

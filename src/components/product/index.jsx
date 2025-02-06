@@ -1,14 +1,15 @@
 import './styles.scss'
 import Returns from "./returns";
+import {Spinner} from "../../assets/spinner";
 
-const Product = ({product, setProductID}) => {
+const Product = ({product, setProductID, productID}) => {
   return <div className={'product'}>
     <button className="close-btn"
             onClick={() => setProductID(null)}
     >✖
     </button>
     {
-      product !== null && <>
+      (product !== null && product.id === productID) ? <>
         <img src={product.image} alt="img" className={'product__img'}/>
         <div className="product__details">
           <div className="details__head">
@@ -25,7 +26,7 @@ const Product = ({product, setProductID}) => {
             </div>
           </div>
         </div>
-      </>
+      </> : <Spinner width={48} height={48} margin={0}/>
     }
   </div>
 }

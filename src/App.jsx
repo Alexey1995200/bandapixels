@@ -17,14 +17,14 @@ const App = () => {
   return (
       isSplashShown ?
         <Splash
-        setIsSplashShown={setIsSplashShown}
-        setIsSplashLoaded={setIsSplashLoaded}
+          setIsSplashShown={setIsSplashShown}
+          setIsSplashLoaded={setIsSplashLoaded}
         /> :
-          isSignedIn ?
-            <ProductList/> :
-            <SignIn
-              setIsSignedIn={setIsSignedIn}
-            />
+        isSignedIn ?
+          <ProductList/> :
+          <SignIn
+            setIsSignedIn={setIsSignedIn}
+          />
   )
 }
 export default App

@@ -26,6 +26,7 @@ const ProductList = () => {
       <Product
         product={product}
         setProductID={setProductID}
+        productID={productID}
       /> :
       <div className="productList">
         {products.map(product => (

@@ -18,11 +18,12 @@
 
   .product__img {
     border-radius: 8px;
-    width: 177px;
-    height: 273px;
+    max-width: 177px;
+    max-height: 273px;
     margin-top: 116px;
     display: flex;
     justify-content: center;
+    object-fit: contain;
   }
 
   .product__details {
