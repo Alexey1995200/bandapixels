@@ -15,14 +15,14 @@ const SignIn = ({setIsSignedIn}) => {
       fetch('https://fakestoreapi.com/auth/login',{
         method:'POST',
         headers: { 'Content-Type': 'application/json' },
-        // body:JSON.stringify({
-        //   username: username,             //"mor_2314"
-        //   password: password             //"83r5^_"
-        // })
-        body: JSON.stringify({
-          username: "mor_2314",
-          password: "83r5^_"
-        }),
+        body:JSON.stringify({
+          username: username,             //"mor_2314"
+          password: password             //"83r5^_"
+        })
+        // body: JSON.stringify({                 //for debug any log/pass
+        //   username: "mor_2314",
+        //   password: "83r5^_"
+        // }),
       })
         .then(async (res) => {
           if (!res.ok) {
@@ -32,13 +32,11 @@ const SignIn = ({setIsSignedIn}) => {
           return res.json();
         })
         .then(json => {
-          console.log(json, json.token)
           setToken(json.token)
         })
         .catch(err => {
           console.error("Error:", err);
           const errorMessage = err.message.split(': ')[1];
-          console.log('Error message:', errorMessage);
           alert(errorMessage);
           window.location.reload();
         });

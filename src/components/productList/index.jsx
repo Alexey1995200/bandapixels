@@ -9,9 +9,6 @@ const ProductList = () => {
   const [product, setProduct] = useState(null);
 
   useEffect(() => {
-    console.log(products)
-  }, [products]);
-  useEffect(() => {
     fetch('https://fakestoreapi.com/products')
       .then(res => res.json())
       .then(json => setProducts(json))
