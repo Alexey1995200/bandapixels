@@ -1,16 +1,15 @@
 {
   "files": {
-    "main.css": "/bandapixels/static/css/main.62f4c882.css",
-    "main.js": "/bandapixels/static/js/main.2952390d.js",
-    "static/js/488.ba986bee.chunk.js": "/bandapixels/static/js/488.ba986bee.chunk.js",
+    "main.css": "/bandapixels/static/css/main.ce062e72.css",
+    "main.js": "/bandapixels/static/js/main.fc024139.js",
     "static/media/logo.svg": "/bandapixels/static/media/logo.dda5785899ddfdbde7333364e0be7274.svg",
     "index.html": "/bandapixels/index.html",
-    "main.62f4c882.css.map": "/bandapixels/static/css/main.62f4c882.css.map",
-    "main.2952390d.js.map": "/bandapixels/static/js/main.2952390d.js.map",
-    "488.ba986bee.chunk.js.map": "/bandapixels/static/js/488.ba986bee.chunk.js.map"
+    "static/media/arrowleft2.svg": "/bandapixels/static/media/arrowleft2.4567722e31374b37bf82f745be2cb000.svg",
+    "main.ce062e72.css.map": "/bandapixels/static/css/main.ce062e72.css.map",
+    "main.fc024139.js.map": "/bandapixels/static/js/main.fc024139.js.map"
   },
   "entrypoints": [
-    "static/css/main.62f4c882.css",
-    "static/js/main.2952390d.js"
+    "static/css/main.ce062e72.css",
+    "static/js/main.fc024139.js"
   ]
 }
