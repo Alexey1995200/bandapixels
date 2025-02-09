@@ -33,7 +33,7 @@ const SignIn = ({setIsSignedIn}) => {
         })
         .then(json => {
           localStorage.setItem('token', json.token)
-          setIsSignedIn (!!json.token)
+          setIsSignedIn(!!json.token)
         })
         .catch(err => {
           console.error("Error:", err);
