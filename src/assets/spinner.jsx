@@ -1,6 +1,12 @@
-export const Spinner = ({width, height, margin}) => {
+export const Spinner = ({width, height, margin, opacity, background}) => {
   return (
-    <div style={{display:"flex", justifyContent:"center", }}>
+    <div className='test' style={{
+      display: "flex",
+      justifyContent: "center",
+      // opacity: `${opacity}`,
+      // background: `${background}`,
+      // margin: `${margin}`
+    }}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width={width ? width : 64}

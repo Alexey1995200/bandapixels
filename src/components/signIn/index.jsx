@@ -6,19 +6,16 @@ const SignIn = ({setIsSignedIn}) => {
   const [temp, setTemp] = useState("")
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
-  const [isEnteringPassword, setIsEnteringPassword] = useState(false)
-  const [token, setToken] = useState('')
   const [isLogginingIn, setIsLogginingIn] = useState(false)
+  const token = localStorage.getItem('token')
+  if (!!token) setIsSignedIn(true)
 
-  useEffect(() => {
-    if (!!token) setIsSignedIn(true)
-  }, [token]);
   useEffect(() => {
     if (!!username && !!password) {
       fetch('https://fakestoreapi.com/auth/login', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
-        body:JSON.stringify({
+        body: JSON.stringify({
           username: username,             //"mor_2314"
           password: password             //"83r5^_"
         })
@@ -35,7 +32,8 @@ const SignIn = ({setIsSignedIn}) => {
           return res.json();
         })
         .then(json => {
-          setToken(json.token)
+          localStorage.setItem('token', json.token)
+          setIsSignedIn (!!json.token)
         })
         .catch(err => {
           console.error("Error:", err);
@@ -49,41 +47,40 @@ const SignIn = ({setIsSignedIn}) => {
     if (!username) {
       setUsername(temp)
       setTemp('')
-      setIsEnteringPassword(true)
     } else {
       setPassword(temp)
     }
     setTemp('')
+    setIsLogginingIn(true)
   }
   const handleKeyDown = (event) => {
     if (temp.length > 3 &&
       event.key === 'Enter') {
       handleContinue()
-      setIsLogginingIn(true)
     }
   };
   return (
     isLogginingIn && !!password ? <Spinner/> :
-    <div className={'sign-in'}>
-      <h1>Sign In</h1>
-      <div className={'form'}>
-        <input
-          className={'sign-in__input'}
-          type={isEnteringPassword ? "password" : "text"} // Міняємо тип інпуту для пароля
-          placeholder={!isEnteringPassword ? "Username" : "Password"}
-          value={temp}
-          onChange={(e) => setTemp(e.target.value)}
-          onKeyDown={handleKeyDown}
-        />
-        <button
-          className={'sign-in__button'}
-          onClick={() => {
-            handleContinue()
-          }}
-        >Continue
-        </button>
+      <div className="sign-in">
+        <h1>Sign In</h1>
+        <div className={'form'}>
+          <input
+            className="sign-in__input"
+            type={!!username ? "password" : "text"}
+            placeholder={!username ? "Username" : "Password"}
+            value={temp}
+            onChange={(e) => setTemp(e.target.value)}
+            onKeyDown={handleKeyDown}
+          />
+          <button
+            className="sign-in__button"
+            onClick={() => {
+              handleContinue()
+            }}
+          >Continue
+          </button>
+        </div>
       </div>
-    </div>
   )
 }
 export default SignIn
